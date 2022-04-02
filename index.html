@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shooting Game in Virtual Reality</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>   
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    
+    <script src="./js/throw.js"></script>
+  </head>
+  <body>
+    <a-scene id="scene">
+     
+      <!--Assets-->
+      <a-assets>        
+        <a-asset-item id="bowling_pin" src="./models/bowling_pin/scene.gltf"></a-asset-item>
+        <a-asset-item id="hand_model" src="./models/hand/scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <!--Camera and Cursor-->
+      <a-entity
+        id="camera"
+        camera
+        position="0 1.6 0"
+        wasd-controls
+        look-controls="pointerLockEnabled: false"        
+      >
+        <a-entity
+            id="hand"
+            gltf-model="#hand_model"
+            position="0 -4.4 3"
+            rotation="0 90 90"
+            scale="0.35 1 1"          
+          >
+        </a-entity>
+        <a-cursor></a-cursor>        
+      </a-entity>
+
+      <!--Balls-->
+      <a-entity throw></a-entity>
+
+      <!--Bowling Pins-->
+      <a-box id="pin_1" position="0 2 -10" depth="1" height="2" width="1" gltf-model="#bowling_pin" scale="7 7 7"></a-box>
+      <a-box id="pin_2" position="-1 2.3 -10" depth="1" height="2" width="1" gltf-model="#bowling_pin" scale="7 7 7"></a-box>
+      <a-box id="pin_3" position="1 2.3 -10" depth="1" height="2" width="1" gltf-model="#bowling_pin" scale="7 7 7"></a-box>
+      <a-box id="pin_4" position="-2 2.6 -10" depth="1" height="2" width="1" gltf-model="#bowling_pin" scale="7 7 7"></a-box>
+      <a-box id="pin_5" position="2 2.6 -10" depth="1" height="2" width="1" gltf-model="#bowling_pin" scale="7 7 7"></a-box>
+      <a-box id="pin_6" position="-3 2.9 -10" depth="1" height="2" width="1" gltf-model="#bowling_pin" scale="7 7 7"></a-box>
+      <a-box id="pin_7" position="3 2.9 -10" depth="1" height="2" width="1" gltf-model="#bowling_pin" scale="7 7 7"></a-box>
+      <a-box id="pin_8" position="0.5 3.5 -14" depth="1" height="2" width="1" gltf-model="#bowling_pin" scale="7 7 7"></a-box>
+      <a-box id="pin_9" position="-0.5 3.5 -14" depth="1" height="2" width="1" gltf-model="#bowling_pin" scale="7 7 7"></a-box>
+
+    </a-scene>
+  </body>
+</html>
